@@ -14,7 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get("addmore","ProductAddMoreController@addMore");
+Route::post("addmore","ProductAddMoreController@addMorePost")->name('addmorePost');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
