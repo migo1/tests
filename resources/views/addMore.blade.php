@@ -41,6 +41,8 @@
                 <td><input type="text" name="addmore[0][name]" placeholder="Enter your Name" class="form-control" /></td>  
                 <td><input type="text" name="addmore[0][qty]" placeholder="Enter your Qty" class="form-control" /></td>  
                 <td><input type="text" name="addmore[0][price]" placeholder="Enter your Price" class="form-control" /></td>  
+            <input type="hidden" name="addmore[0][test_id]" value="{{ $test }}" /> 
+
                 <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>  
             </tr>  
         </table> 
@@ -52,12 +54,15 @@
 <script type="text/javascript">
    
     var i = 0;
+            var test = JSON.parse("{{ json_encode($test) }}");
+
        
     $("#add").click(function(){
    
+
         ++i;
    
-        $("#dynamicTable").append('<tr><td><input type="text" name="addmore['+i+'][name]" placeholder="Enter your Name" class="form-control" /></td><td><input type="text" name="addmore['+i+'][qty]" placeholder="Enter your Qty" class="form-control" /></td><td><input type="text" name="addmore['+i+'][price]" placeholder="Enter your Price" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
+        $("#dynamicTable").append('<tr><td><input type="text" name="addmore['+i+'][name]" placeholder="Enter your Name" class="form-control" /></td><td><input type="text" name="addmore['+i+'][qty]" placeholder="Enter your Qty" class="form-control" /></td><td><input type="text" name="addmore['+i+'][price]" placeholder="Enter your Price" class="form-control" /></td><td><input type="hidden" name="addmore['+i+'][test_id]" value="'+test+'"/></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
     });
    
     $(document).on('click', '.remove-tr', function(){  

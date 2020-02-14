@@ -18,6 +18,7 @@ class CreateProductStocksTable extends Migration
             $table->string('name');
             $table->integer('qty');
             $table->integer('price');
+            $table->integer('test_id');
             $table->timestamps();
         });
     }
